@@ -1,23 +1,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV.fetch("PGHOST") { } %>
-  database: <%= ENV.fetch("PGDATABASE", "payment_system_db") %>
-  username: <%= ENV.fetch("PGUSER") { } %>
-  password: <%= ENV.fetch("PGPASSWORD", "password") %>
+  username: <%= ENV.fetch("POSTGRES_USER") { } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  port: <%= ENV.fetch("PGPORT") { 5432 } %>
+  port: <%= ENV.fetch("POSTGRES_PORT", "5432") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { 'password' } %>
 
 development:
   <<: *default
-  database: payment_system_db_development
+  database: payment_development
+  host: <%= ENV.fetch("DATABASE_HOST") { } %>
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: payment_system_db_test
-
-production:
-  <<: *default
+  database: payment_test
+  host: <%= ENV.fetch("DATABASE_HOST") { } %>
