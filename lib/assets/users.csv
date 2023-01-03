@@ -1,0 +1,13 @@
+﻿type,email,name,description,password,status
+Merchant,merchant1@test.com,Yan Summer,Librarian,passer123,active
+Merchant,merchant2@test.com,Michael Sloan,Graphist,passer123,inactive
+Merchant,merchant3@test.com,Moussa Fall,Librarian,passer123,active
+Merchant,merchant4@test.com,Yan Royce,Librarian,passer123,inactive
+Merchant,merchant5@test.com,Dilan Summer,Librarian,passer123,active
+Merchant,merchant6@test.com,Roy Summer,Librarian,passer123,inactive
+Merchant,merchant7@test.com,Abdoulaye Diop,Librarian,passer123,active
+Merchant,merchant8@test.com,Habib Tall,Librarian,passer123,inactive
+Merchant,merchant9@test.com,Dilan Price,Librarian,passer123,active
+Merchant,merchant10@test.com,Roy Keane,Librarian,passer123,inactive
+Admin,admin1@test.com,Moussa Diop,Administrator,123passer,active
+Admin,admin2@test.com,Yulian Godan,Administrator,123passer,inactive
