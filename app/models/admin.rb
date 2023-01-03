@@ -10,6 +10,7 @@ end
 #  email                 :string           not null
 #  encrypted_password    :string           not null
 #  name                  :string           not null
+#  remember_created_at   :datetime
 #  status                :integer          default("inactive"), not null
 #  total_transaction_sum :decimal(, )      default(0.0), not null
 #  type                  :string
