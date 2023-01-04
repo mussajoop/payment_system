@@ -1,8 +1,15 @@
 class User < ApplicationRecord
-  include Roles
   devise :database_authenticatable, :timeoutable, :rememberable
 
   enum :status, { inactive: 0, active: 1 }
+
+  def merchant?
+    is_a?(Merchant)
+  end
+
+  def admin?
+    is_a?(Admin)
+  end
 end
 
 # == Schema Information
