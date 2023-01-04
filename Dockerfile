@@ -1,10 +1,12 @@
 FROM ruby:3.1.2-alpine AS builder
 
 RUN apk update && apk upgrade && apk add --update --no-cache \
+  ca-certificates \
   build-base \
   curl-dev \
   nodejs \
   postgresql-dev \
+  postgresql-client \
   tzdata \
   vim \
   yarn && rm -rf /var/cache/apk/*
