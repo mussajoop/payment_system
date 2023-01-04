@@ -14,6 +14,7 @@ services:
       - ./.env
     depends_on:
       - database
+      - redis
     stdin_open: true
     tty: true
 
@@ -35,5 +36,25 @@ services:
     volumes:
       - ./tmp/downloads:/home/seluser/Downloads
 
+  redis:
+    image: 'redis:5-alpine'
+    command: redis-server
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis:/data'
+
+  sidekiq:
+    depends_on:
+      - 'database'
+      - 'redis'
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/usr/src/app
+      - '/usr/src/app/tmp'
+    env_file:
+      - ./.env
 volumes:
   db_data:
+  redis:
