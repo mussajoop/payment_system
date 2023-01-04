@@ -67,6 +67,9 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "slim_lint"
   gem "rubocop"
+  gem "factory_bot_rails"
+  gem "rspec-rails"
+  gem 'faker'
 end
 
 group :development do
@@ -86,8 +89,6 @@ group :test do
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "webdrivers" # easy installation and use of web drivers to run system tests with browsers
-  gem "factory_bot_rails"
-  gem "rspec-rails"
   gem "shoulda-matchers"
   gem 'rspec-retry'
 end
