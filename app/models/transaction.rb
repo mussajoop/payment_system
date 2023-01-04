@@ -4,6 +4,16 @@ class Transaction < ApplicationRecord
   enum :status, { approved: 0, reversed: 1, refunded: 2, error: 3 }
 
   default_scope { order(created_at: :asc) }
+
+  scope :all_for_current_user, ->(current_user) do
+    if current_user.admin?
+      includes([:merchant]).all
+    elsif current_user.merchant?
+      includes([:merchant]).where(merchant_id: current_user.id)
+    else
+      []
+    end
+  end 
 end
 
 # == Schema Information
