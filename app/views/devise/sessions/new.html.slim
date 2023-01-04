@@ -1,0 +1,13 @@
+.d-flex.justify-content-center.p-5
+  = form_for(resource, as: resource_name, url: session_path(resource_name), class: "text-center col-3 form-signin") do |f|
+    h1.h1.mb-3.font-weight-normal
+      | Payment System
+    = f.label :email, class: "sr-only"
+    = f.email_field :email, id: "inputEmail", class: "form-control", placeholder: "Email address", autofocus: true, autocomplete: "email"
+    = f.label :password, class: "sr-only"
+    = f.password_field :password, id: "inputPassword", class: "form-control", placeholder: "Password"
+    - if notice
+      .alert.alert-primary.mt-3[role="alert"]
+        = notice
+    = f.submit "Log in", class: "btn btn-primary btn-lg btn-block mt-3"
+= render "devise/shared/links"
