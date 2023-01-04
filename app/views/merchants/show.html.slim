@@ -1,0 +1,27 @@
+h1 Merchant
+
+p style="color: green" = notice
+
+== render @merchant
+div
+  div
+    = "# "
+    = @merchant.id
+  div
+    = "Name: "
+    = @merchant.name
+  div
+    = "Email: "
+    = @merchant.email
+  div
+    = "Description: "
+    = @merchant.description
+  div
+    = "Total transactions: "
+    = @merchant.total_transaction_sum
+  div
+    = "Status: "
+    = @merchant.status
+div
+
+  = button_to "Destroy this merchant", @merchant, method: :delete, class: "btn btn-danger btn-lg btn-block mt-3"
