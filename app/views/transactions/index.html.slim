@@ -1,0 +1,44 @@
+- if notice
+  .alert.alert-warning.mt-3[role="alert"]
+    = notice
+h1 Transactions
+
+#transactions
+  table.table
+    thead.thead-light
+      tr
+        th[scope="col"]
+          | #
+        th[scope="col"]
+          | Transaction Type
+        th[scope="col"]
+          | Amount
+        th[scope="col"]
+          | Merchant
+        th[scope="col"]
+          | Customer Email
+        th[scope="col"]
+          | Customer Phone
+        th[scope="col"]
+          | #Referent Transaction
+        th[scope="col"]
+          | Status
+    tbody
+      - @transactions.each do |transaction|
+          tr
+            th[scope="row"]
+              = transaction.id
+            td
+              = transaction.type
+            td
+              = transaction.amount
+            td
+              = transaction.merchant.email
+            td
+              = transaction.customer_email
+            td
+              = transaction.customer_phone
+            td
+              = transaction.parent_id
+            td
+              = transaction.status
