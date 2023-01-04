@@ -1,0 +1,28 @@
+.col-auto.col-md-3.col-xl-2.px-sm-2.px-0.bg-light
+  .d-flex.flex-column.align-items-center.align-items-sm-start.px-3.pt-2.text-blue.min-vh-100
+    a.d-flex.align-items-center.pb-3.mb-md-0.me-md-auto.text-blue.text-decoration-none[href="#"]
+      span.fs-5.d-none.d-sm-inline
+        | PAYMENT SYSTEM
+    ul#menu.nav.nav-pills.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start
+      
+      li
+        a.nav-link.px-0.align-middle[href="/transactions"]
+          i.fs-4.bi-table
+          span.ms-1.d-none.d-sm-inline
+            | Transactions
+      
+      - if current_user.admin?
+        li
+          a.nav-link.px-0.align-middle[href="/merchants"]
+            i.fs-4.bi-people
+            span.ms-1.d-none.d-sm-inline
+              | Merchants
+    hr
+    .pb-4
+      button.btn.btn-sm.btn-warning[type="button" disabled]
+        = current_user.type
+      span.m-2
+        = current_user.name
+      div#d-flex.align-items-center.text-black.text-decoration-underline.mt-2
+        = link_to("Log out", destroy_user_session_path)
+
