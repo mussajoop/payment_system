@@ -1,11 +1,13 @@
 class RefundTransaction < Transaction
   belongs_to :charge_transaction, class_name: "ChargeTransaction", foreign_key: "parent_id"
 
+  validates :amount, numericality: { greater_than: 0 }
+
   def self.refund!(args)
     ActiveRecord::Base.transaction do
       args[:charge_transaction].refunded!
-      args[:merchant].refund!(amount)
-      create!(amount: args[:amount], merchant: args[:merchant], charge_transaction: args[:charge_transaction])
+      args[:merchant].refund!(args[:amount].to_d)
+      create!(amount: args[:amount].to_d, merchant: args[:merchant], charge_transaction: args[:charge_transaction])
     end
   end
 end

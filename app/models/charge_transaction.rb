@@ -3,10 +3,12 @@ class ChargeTransaction < Transaction
 
   before_create :set_status
 
+  validates :amount, numericality: { greater_than: 0 }
+
   def self.charge!(args)
     ActiveRecord::Base.transaction do
-      create!(amount: args[:amount], authorize_transaction: args[:authorize_transaction], merchant: args[:merchant])
-      args[:merchant].receive!(args[:amount]) if args[:authorize_transaction].approved?
+      create!(amount: args[:amount].to_d, authorize_transaction: args[:authorize_transaction], merchant: args[:merchant])
+      args[:merchant].receive!(args[:amount].to_d) if args[:authorize_transaction].approved?
     rescue
       ReversalTransaction.reversal!(args.merge(authorize_transaction: args[:authorize_transaction]))
     end

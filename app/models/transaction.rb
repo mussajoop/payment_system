@@ -1,6 +1,8 @@
 class Transaction < ApplicationRecord
   belongs_to :merchant
 
+  validates_presence_of :status
+
   enum :status, { approved: 0, reversed: 1, refunded: 2, error: 3 }
 
   default_scope { order(created_at: :asc) }
@@ -13,7 +15,7 @@ class Transaction < ApplicationRecord
     else
       []
     end
-  end 
+  end
 end
 
 # == Schema Information

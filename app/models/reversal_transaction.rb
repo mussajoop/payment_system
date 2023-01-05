@@ -4,7 +4,7 @@ class ReversalTransaction < Transaction
   def self.reversal!(args)
     ActiveRecord::Base.transaction do
       args[:authorize_transaction].reversed!
-      create!(authorize_transaction: args[:authorize_transaction], merchant: args[:merchant])
+      create!(authorize_transaction: args[:authorize_transaction], merchant: args[:authorize_transaction].merchant)
     end
   end
 end

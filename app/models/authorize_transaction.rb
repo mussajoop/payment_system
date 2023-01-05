@@ -1,8 +1,10 @@
 class AuthorizeTransaction < Transaction
   before_create :set_status
+  validates :customer_email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :amount, numericality: { greater_than: 0 }
 
   def self.authorize!(args)
-    authorize_transaction = create!(amount: args.fetch(:amount), customer_email: args[:customer_email], customer_phone: args[:customer_phone], merchant: args[:merchant])
+    authorize_transaction = create!(amount: args.fetch(:amount).to_d, customer_email: args[:customer_email], customer_phone: args[:customer_phone], merchant: args[:merchant])
     ChargeTransaction.charge!(args.merge(authorize_transaction:)) if args[:merchant].active?
     authorize_transaction
   end
