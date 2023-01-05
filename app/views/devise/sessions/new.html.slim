@@ -3,9 +3,9 @@
     h1.h1.mb-3.font-weight-normal
       | Payment System
     = f.label :email, class: "sr-only"
-    = f.email_field :email, id: "inputEmail", class: "form-control", placeholder: "Email address", autofocus: true, autocomplete: "email"
+    = f.email_field :email, class: "form-control", placeholder: "Email address", autofocus: true, autocomplete: "email"
     = f.label :password, class: "sr-only"
-    = f.password_field :password, id: "inputPassword", class: "form-control", placeholder: "Password"
+    = f.password_field :password, class: "form-control", placeholder: "Password"
     - if notice
       .alert.alert-primary.mt-3[role="alert"]
         = notice
