@@ -91,4 +91,5 @@ group :test do
   gem "webdrivers" # easy installation and use of web drivers to run system tests with browsers
   gem "shoulda-matchers"
   gem 'rspec-retry'
+  gem 'rspec-json_expectations'
 end
