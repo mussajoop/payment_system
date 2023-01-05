@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   # GET /transactions
   def index
     authorize Transaction
-    @transactions = Transaction.all_for_current_user(current_user)    
+    @transactions = Transaction.all_for_current_user(current_user)
   end
 
   # POST /transactions or /transactions.json

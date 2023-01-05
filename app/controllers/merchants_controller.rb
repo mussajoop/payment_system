@@ -1,5 +1,5 @@
 class MerchantsController < ApplicationController
-  before_action :set_merchant, only: %i[ show edit update destroy ]
+  before_action :set_merchant, only: %i[show edit update destroy]
 
   # GET /merchants or /merchants.json
   def index
@@ -43,13 +43,14 @@ class MerchantsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_merchant
-      @merchant = Merchant.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def merchant_params
-      params.require(:merchant).permit(:id, :name, :email, :description, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_merchant
+    @merchant = Merchant.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def merchant_params
+    params.require(:merchant).permit(:id, :name, :email, :description, :status)
+  end
 end

@@ -13,5 +13,5 @@ class MerchantPolicy < ApplicationPolicy
 
   def destroy?
     user.admin?
-  end 
+  end
 end
