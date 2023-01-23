@@ -10,7 +10,7 @@
 Payment system is a ruby on rails application allowing us to show off some programming skills, it's based on ruby on rails, docker, sidekiq, redis and some other basic dependencies...
 
 
-## Dépendances
+## Dependencies
 Payment system consists of a suite of dependencies (gems, packages, database, cache ...) among which docker plays a central role. Docker makes it possible to orchestrate the different dependencies of the application and to set up a single working environment independent of the operating system, thus making it possible to share consistency between the different development environments (linux, windows, mac). For a launch of the application or a build, docker-compose takes care of concentrating in the `docker-compose.yml` file the various container orchestration data, setting up volumes and any other docker instructions that we will need.
 
 Basic dependencies:
